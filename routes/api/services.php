@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Services;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', Services\IndexController::class)->name('index');
 Route::post('/', Services\StoreController::class)->name('store');

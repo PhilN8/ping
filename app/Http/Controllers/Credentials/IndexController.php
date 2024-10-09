@@ -6,8 +6,5 @@ namespace App\Http\Controllers\Credentials;
 
 final class IndexController
 {
-    public function __invoke()
-    {
-        //
-    }
+    public function __invoke(): void {}
 }

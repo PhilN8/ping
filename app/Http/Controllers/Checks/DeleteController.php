@@ -6,8 +6,5 @@ namespace App\Http\Controllers\Checks;
 
 final class DeleteController
 {
-    public function __invoke()
-    {
-        //
-    }
+    public function __invoke(): void {}
 }
