@@ -19,7 +19,7 @@ return new class () extends Migration {
             $table->string('path');
             $table->string('method')->default('GET');
 
-            $table->text('body');
+            $table->text('body')->nullable();
             $table->json('headers')->nullable();
             $table->json('parameters')->nullable();
 

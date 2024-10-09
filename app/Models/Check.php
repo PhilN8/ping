@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\CarbonInterface;
-use Illuminate\Database\Eloquent\Casts\AsCollection;
-use Illuminate\Database\Eloquent\Concerns\HasUlids;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
+use Illuminate\Database\Eloquent\Casts\AsCollection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @property string $id
@@ -17,8 +18,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $path
  * @property string $method
  * @property string $body
- * @property null|AsCollection $headers
- * @property null|AsCollection $parameters
+ * @property null|Collection $headers
+ * @property null|Collection $parameters
  * @property null|CarbonInterface $created_at
  * @property null|CarbonInterface $updated_at
  * @property string $credential_id

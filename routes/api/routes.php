@@ -10,7 +10,7 @@ Route::prefix('v1')->as('v1:')->group(static function (): void {
         ->name('home')
         ->middleware(['sunset:' . now()->addDays(2)]);
 
-    Route::middleware(['auth:sanctum', 'throttle:api'])->group(static function (): void {
+    Route::middleware(['throttle:api'])->group(static function (): void {
         Route::get('/user', fn(Request $request) => $request->user())->name('user');
 
         Route::prefix('services')->as('services:')->group(base_path(
