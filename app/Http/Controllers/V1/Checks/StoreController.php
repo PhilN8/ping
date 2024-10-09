@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Checks;
+namespace App\Http\Controllers\V1\Checks;
 
-final class ShowController
+final class StoreController
 {
     public function __invoke(): void {}
 }

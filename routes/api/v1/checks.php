@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Checks;
+use App\Http\Controllers\V1\Checks;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Checks\IndexController::class)->name('index');

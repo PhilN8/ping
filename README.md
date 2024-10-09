@@ -14,3 +14,14 @@ Another acronym for CRUD is `BREAD`
 - `E`dit
 - `A`dd
 - `D`elete
+
+## Lesson 7
+For smaller projects: use prefixes => `v1`, `v2`
+
+For bigger projects, or employ lots of stateful data like payments, use the Stripe Option: headers
+`X-API-VERSION: 1.1.0`
+Then have a middleware to check that.
+
+### Deprecation
+Addition of the HTTP Sunset Field to warn people that certain endpoints will no longer be used.
+Use Middleware to add such information

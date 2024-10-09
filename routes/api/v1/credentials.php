@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Credentials;
+use App\Http\Controllers\V1\Credentials;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Credentials\IndexController::class)->name('index');

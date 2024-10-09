@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Services;
+use App\Http\Controllers\V1\Services;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Services\IndexController::class)->name('index');

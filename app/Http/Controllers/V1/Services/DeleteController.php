@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Checks;
+namespace App\Http\Controllers\V1\Services;
 
-final class StoreController
+final class DeleteController
 {
     public function __invoke(): void {}
 }

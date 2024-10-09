@@ -20,6 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->alias([
+            'sunset' => App\Http\Middleware\SunsetMiddleware::class,
             'verified' => App\Http\Middleware\EnsureEmailIsVerified::class,
         ]);
 
