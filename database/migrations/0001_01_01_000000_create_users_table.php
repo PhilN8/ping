@@ -25,13 +25,13 @@ return new class () extends Migration {
             $table->softDeletes();
         });
 
-        Schema::create('password_reset_tokens', function (Blueprint $table): void {
+        Schema::create('password_reset_tokens', static function (Blueprint $table): void {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
-        Schema::create('sessions', function (Blueprint $table): void {
+        Schema::create('sessions', static function (Blueprint $table): void {
             $table->string('id')->primary();
             $table->foreignUlid('user_id')->nullable()->index()->constrained('users')->cascadeOnDelete();
             $table->string('ip_address', 45)->nullable();
