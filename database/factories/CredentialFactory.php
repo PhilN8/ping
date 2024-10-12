@@ -23,7 +23,7 @@ final class CredentialFactory extends Factory
         return [
             'name' => $this->faker->sentence(),
             'type' => [
-                'type' => CredentialType::Bearer_Auth,
+                'type' => CredentialType::BEARER_AUTH,
                 'prefix' => 'Bearer',
             ],
             'value' => $this->faker->uuid(),

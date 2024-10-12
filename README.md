@@ -41,3 +41,9 @@ Pass write operations to a background job => API can respond quicker to requests
 - use `php artisan lang:publish` to publish the lang files.
 - add your own translations
 - use the `__()` function to have access the translation keys.
+
+## Lesson 13
+
+#### Caching
+
+predis/predis package OR change the `CACHE_STORE` in the `.env` file to `redis`
