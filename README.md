@@ -33,3 +33,11 @@ Pass write operations to a background job => API can respond quicker to requests
 
 `PUT` => entire payload is sent
 `PATCH` => partial information
+
+## Lesson 12
+
+#### Internalization
+
+- use `php artisan lang:publish` to publish the lang files.
+- add your own translations
+- use the `__()` function to have access the translation keys.

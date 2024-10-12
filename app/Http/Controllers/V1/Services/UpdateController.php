@@ -22,9 +22,9 @@ final readonly class UpdateController
 
     public function __invoke(WriteRequest $request, Service $service): Responsable
     {
-        if ( ! Gate::abilities('create', $service)) {
+        if ( ! Gate::abilities('update', $service)) {
             throw new UnauthorizedException(
-                message: 'You cannot update a service you do not own',
+                message: __('services.v1.update.failure'),
                 code: Response::HTTP_FORBIDDEN,
             );
         }
@@ -38,7 +38,7 @@ final readonly class UpdateController
 
 
         return new MessageResponse(
-            message: 'We will update your service in the background.',
+            message: __('services.v1.update.create'),
             status: Response::HTTP_ACCEPTED,
         );
     }
