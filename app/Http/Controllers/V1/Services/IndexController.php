@@ -15,19 +15,19 @@ final class IndexController
     public function __invoke(): Response
     {
         $services = QueryBuilder::for(
-            subject: Service::class
+            subject: Service::class,
         )->allowedIncludes(
             includes: [
-                'checks'
-            ]
+                'checks',
+            ],
         )->getEloquentBuilder()->simplePaginate(
-            perPage: config('app.pagination.limit')
+            perPage: config('app.pagination.limit'),
         );
 
         return new JsonResponse(
             data: ServiceResource::collection(
-                resource: $services
-            )
+                resource: $services,
+            ),
         );
     }
 }

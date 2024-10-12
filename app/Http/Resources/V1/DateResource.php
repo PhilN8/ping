@@ -19,7 +19,7 @@ final class DateResource extends JsonResource
             'human' => $this->resource->diffForHumans(),
             'string' => $this->resource->toIso8601String(),
             'local' => $this->resource->toDateTimeLocalString(),
-            'timestamp' => $this->resource->timestamp
+            'timestamp' => $this->resource->timestamp,
         ];
     }
 }

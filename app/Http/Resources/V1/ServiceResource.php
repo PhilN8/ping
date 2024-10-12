@@ -20,8 +20,8 @@ final class ServiceResource extends JsonApiResource
             'name' => $this->resource->name,
             'url' => $this->resource->url,
             'created' => new DateResource(
-                resource: $this->resource->created_at
-            )
+                resource: $this->resource->created_at,
+            ),
         ];
     }
 
@@ -30,16 +30,16 @@ final class ServiceResource extends JsonApiResource
         return [
             'checks' => fn() => CheckResource::collection(
                 resource: $this->whenLoaded(
-                    relationship: 'checks'
-                )
-            )
+                    relationship: 'checks',
+                ),
+            ),
         ];
     }
 
     public function toLinks(Request $request): array
     {
         return [
-            Link::self(route('v1:services:show', $this->resource))
+            Link::self(route('v1:services:show', $this->resource)),
         ];
     }
 }

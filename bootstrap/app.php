@@ -33,11 +33,11 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(fn(UnprocessableEntityHttpException $exception, Request $request) => new JsonResponse(
             data: $exception->getMessage(),
-            status: 422
+            status: 422,
         ));
 
-        $exceptions->render(fn(\Throwable $exception, Request $request) => ErrorFactory::create(
+        $exceptions->render(fn(Throwable $exception, Request $request) => ErrorFactory::create(
             exception: $exception,
-            request: $request
+            request: $request,
         ));
     })->create();

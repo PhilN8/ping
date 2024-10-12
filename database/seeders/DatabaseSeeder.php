@@ -21,7 +21,7 @@ final class DatabaseSeeder extends Seeder
 
         $service = Service::factory()->for($user)->create([
             'name' => 'Treblle API',
-            'url' => 'https://api.treblle.com'
+            'url' => 'https://api.treblle.com',
         ]);
 
         Check::factory()->for($service)->count(10)->create();

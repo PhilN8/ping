@@ -25,3 +25,11 @@ Then have a middleware to check that.
 ### Deprecation
 Addition of the HTTP Sunset Field to warn people that certain endpoints will no longer be used.
 Use Middleware to add such information
+
+## Lesson 11
+Pass write operations to a background job => API can respond quicker to requests, improves testability
+
+`Response::HTTP_ACCEPTED` => nothing wrong with the request. User does not need to know a lot (Abstraction).
+
+`PUT` => entire payload is sent
+`PATCH` => partial information

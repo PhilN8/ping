@@ -7,19 +7,18 @@ namespace App\Factories;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use JustSteveKing\Tools\Http\Enums\Status;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Exception\MethodNotAllowedException;
+use Throwable;
 use Treblle\ApiResponses\Data\ApiError;
 use Treblle\ApiResponses\Responses\ErrorResponse;
 
 final class ErrorFactory
 {
-    public static function create(\Throwable $exception, Request $request)
+    public static function create(Throwable $exception, Request $request): ErrorResponse
     {
-        // dd($exception);
-
-        return match($exception::class) {
+        return match ($exception::class) {
             NotFoundHttpException::class,
             ModelNotFoundException::class => new ErrorResponse(
                 data: new ApiError(
@@ -27,9 +26,9 @@ final class ErrorFactory
                     detail: 'The resource you are looking for does not exist',
                     instance: $request->fullUrl(),
                     code: 'HTTP-404',
-                    link: 'https://docs.treblle.com/errors/404' 
+                    link: 'https://docs.treblle.com/errors/404',
                 ),
-                status: Status::NOT_FOUND
+                status: Status::NOT_FOUND,
             ),
 
             MethodNotAllowedHttpException::class,
@@ -40,7 +39,7 @@ final class ErrorFactory
                     detail: $exception->getMessage(),
                     instance: $request->fullUrl(),
                     code: 'HTTP-405',
-                    link: 'https://docs.treblle.com/errors/404' 
+                    link: 'https://docs.treblle.com/errors/404',
                 ),
                 status: Status::METHOD_NOT_ALLOWED,
             ),
@@ -51,10 +50,10 @@ final class ErrorFactory
                     detail: 'Something went wrong',
                     instance: $request->fullUrl(),
                     code: 'SER-500',
-                    link: 'https://docs.treblle.com/errors/500' 
+                    link: 'https://docs.treblle.com/errors/500',
                 ),
-                status: Status::INTERNAL_SERVER_ERROR
-            )
+                status: Status::INTERNAL_SERVER_ERROR,
+            ),
         };
     }
 }
