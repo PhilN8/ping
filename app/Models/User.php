@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * @property string $id
@@ -29,6 +30,7 @@ use Illuminate\Notifications\Notifiable;
  */
 final class User extends Authenticatable
 {
+    use HasApiTokens;
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
     use HasUlids;
@@ -50,7 +52,7 @@ final class User extends Authenticatable
         'remember_token',
     ];
 
-    /** @return HasMany<Credential> */
+    /** @return HasMany<Credential,self> */
     public function credentials(): HasMany
     {
         return $this->hasMany(
@@ -59,7 +61,7 @@ final class User extends Authenticatable
         );
     }
 
-    /** @return HasMany<Service> */
+    /** @return HasMany<Service,self> */
     public function services(): HasMany
     {
         return $this->hasMany(
@@ -68,7 +70,7 @@ final class User extends Authenticatable
         );
     }
 
-    /** @var array<string,string> */
+    /** @return array<string,string> */
     protected function casts(): array
     {
         return [

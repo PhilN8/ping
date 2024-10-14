@@ -8,7 +8,6 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Spatie\ResponseCache\Middlewares\CacheResponse;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 use Treblle\SecurityHeaders\Http\Middleware\CertificateTransparencyPolicy;
 use Treblle\SecurityHeaders\Http\Middleware\ContentTypeOptions;

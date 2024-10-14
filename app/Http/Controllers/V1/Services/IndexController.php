@@ -23,12 +23,15 @@ final class IndexController
             value: $cachedServices = Service::query()->where(
                 column: 'user_id',
                 operator: '=',
-                value: Auth::id()
-            )->get(),
+                value: Auth::id(),
+            )->pluck('id')->toArray(),
         );
 
         $services = QueryBuilder::for(
-            subject: $cachedServices,
+            subject: Service::query()->whereIn(
+                column: 'id',
+                values: $cachedServices,
+            ),
         )->allowedIncludes(
             includes: [
                 'checks',

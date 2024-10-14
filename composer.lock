@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c985e76e07edac5968f5cdf0a9decb90",
+    "content-hash": "b6db03f8e3c1ac6e340004ae810d187f",
     "packages": [
         {
             "name": "brick/math",
@@ -6107,6 +6107,135 @@
                 "source": "https://github.com/Treblle/security-headers/tree/0.0.3"
             },
             "time": "2023-06-05T09:40:40+00:00"
+        },
+        {
+            "name": "treblle/treblle-laravel",
+            "version": "4.6.43",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Treblle/treblle-laravel.git",
+                "reference": "a889649f705291e21204517d32195763f3b532f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Treblle/treblle-laravel/zipball/a889649f705291e21204517d32195763f3b532f5",
+                "reference": "a889649f705291e21204517d32195763f3b532f5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^8.1",
+                "treblle/utils": "^0.4.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^7.7.0",
+                "laravel/octane": "^1.5.6",
+                "laravel/pint": "^1.10.3",
+                "orchestra/testbench": "^7.0 || ^8.5.9",
+                "phpstan/phpstan": "^1.10.25"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Treblle\\TreblleServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Treblle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vedran Cindrić",
+                    "email": "vedran@treblle.com",
+                    "homepage": "https://treblle.com/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Steve McDougall",
+                    "email": "juststevemcd@gmail.com",
+                    "homepage": "https://treblle.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Stay in tune with your APIs",
+            "homepage": "https://treblle.com/",
+            "keywords": [
+                "api",
+                "debuging",
+                "documentation",
+                "laravel",
+                "monitoring",
+                "treblle"
+            ],
+            "support": {
+                "issues": "https://github.com/Treblle/treblle-laravel/issues",
+                "source": "https://github.com/Treblle/treblle-laravel/tree/4.6.43"
+            },
+            "time": "2024-10-11T12:17:27+00:00"
+        },
+        {
+            "name": "treblle/utils",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Treblle/php-utils.git",
+                "reference": "8a8d837170acf3fff7b02be18f502f11fc2b36e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Treblle/php-utils/zipball/8a8d837170acf3fff7b02be18f502f11fc2b36e5",
+                "reference": "8a8d837170acf3fff7b02be18f502f11fc2b36e5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.7",
+                "pestphp/pest": "^v2.8.2",
+                "phpstan/phpstan": "^1.10.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Treblle\\Utils\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steve McDougall",
+                    "email": "juststevemcd@gmail.com",
+                    "homepage": "https://www.juststeveking.uk/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Treblle PHP SDK utilities.",
+            "homepage": "https://www.treblle.com/",
+            "keywords": [
+                "api",
+                "debuging",
+                "documentation",
+                "laravel",
+                "monitoring",
+                "treblle"
+            ],
+            "support": {
+                "issues": "https://github.com/Treblle/php-utils/issues",
+                "source": "https://github.com/Treblle/php-utils/tree/0.4.0"
+            },
+            "time": "2024-09-26T11:45:45+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

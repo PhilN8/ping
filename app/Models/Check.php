@@ -6,11 +6,12 @@ namespace App\Models;
 
 use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Casts\AsCollection;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 /**
  * @property string $id
@@ -26,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $service_id
  * @property Service $service
  * @property Credential $credential
+ * @property Collection<Report> $reports
  */
 final class Check extends Model
 {
@@ -46,7 +48,7 @@ final class Check extends Model
     ];
 
     /** @return BelongsTo<Credential> */
-    public function credential(): BelongsTo
+    public function credentials(): BelongsTo
     {
         return $this->belongsTo(
             related: Credential::class,
@@ -60,6 +62,15 @@ final class Check extends Model
         return $this->belongsTo(
             related: Service::class,
             foreignKey: 'service_id',
+        );
+    }
+
+    /** @return HasMany<Report> */
+    public function reports(): HasMany
+    {
+        return $this->hasMany(
+            related: Report::class,
+            foreignKey: 'check_id',
         );
     }
 

@@ -22,10 +22,10 @@ final class ShowController
         Cache::forever(
             key: CacheKey::SERVICE->value . "_" . $ulid,
             value: $service = Service::query()->findOrFail(
-                id: $ulid
-            )
+                id: $ulid,
+            ),
         );
-        
+
         if ( ! Gate::allows('view', $service)) {
             throw new UnauthorizedException(
                 message: __('services.v1.show.failure'),
