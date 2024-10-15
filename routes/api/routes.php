@@ -2,15 +2,19 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 Route::prefix('v1')->as('v1:')->group(static function (): void {
+    Route::post('login', LoginController::class)->name('login');
+    
     Route::get('/', static fn(Request $request) => response()->json($request->headers->all()))
         ->name('home')
         ->middleware(['sunset:' . now()->addDays(2)]);
 
-    Route::middleware(['throttle:api'])->group(static function (): void {
+    Route::middleware(['auth:sanctum', 'throttle:api'])->group(static function (): void {
         Route::get('/user', fn(Request $request) => $request->user())->name('user');
 
         Route::prefix('services')->as('services:')->group(base_path(

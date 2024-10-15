@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Factories;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use JustSteveKing\Tools\Http\Enums\Status;
@@ -31,7 +32,7 @@ final class ErrorFactory
                 status: Status::NOT_FOUND,
             ),
 
-            MethodNotAllowedHttpException::class,
+            // MethodNotAllowedHttpException::class,
             MethodNotAllowedException::class => new ErrorResponse(
                 data: new ApiError(
                     title: 'Method not allowed',
@@ -44,6 +45,17 @@ final class ErrorFactory
                 status: Status::METHOD_NOT_ALLOWED,
             ),
 
+            AuthenticationException::class => new ErrorResponse(
+                data: new ApiError(
+                    title: 'Unauthenticated',
+                    detail: 'You are trying to access this link without being authenticated.',
+                    instance: $request->fullUrl(),
+                    code: 'HTTP-401',
+                    link: 'https://docs.treblle.com/errors/401',
+                ),
+                status: Status::UNAUTHORIZED,
+            ),
+
             default => new ErrorResponse(
                 data: new ApiError(
                     title: 'Something went wrong',
@@ -52,7 +64,7 @@ final class ErrorFactory
                     code: 'SER-500',
                     link: 'https://docs.treblle.com/errors/500',
                 ),
-                status: Status::INTERNAL_SERVER_ERROR,
+                status: Status::tryFrom($exception->getCode()) ?? Status::INTERNAL_SERVER_ERROR,
             ),
         };
     }

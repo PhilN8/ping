@@ -30,12 +30,12 @@ use Laravel\Sanctum\HasApiTokens;
  */
 final class User extends Authenticatable
 {
-    use HasApiTokens;
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
     use HasUlids;
     use Notifiable;
     use SoftDeletes;
+    use HasApiTokens;
 
     /** @var array<int,string> */
     protected $fillable = [

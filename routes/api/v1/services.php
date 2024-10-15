@@ -8,7 +8,7 @@ use Spatie\ResponseCache\Middlewares\CacheResponse;
 
 Route::post('/', Services\StoreController::class)->name('store');
 
-Route::middleware([CacheResponse::class])->group(static function (): void {
+Route::middleware([])->group(static function (): void {
     Route::get('/', Services\IndexController::class)->name('index');
     Route::get('/{ulid}', Services\ShowController::class)->name('show');
 });
